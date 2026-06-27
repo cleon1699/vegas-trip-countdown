@@ -79,7 +79,7 @@ app.innerHTML = `
           </label>
           <label class="todo-item">
             <input type="checkbox" data-todo="pick-hot-outfit">
-            <span>Pick a hot outfit</span>
+            <span>Pick a hot dinner outfit</span>
           </label>
           <label class="todo-item">
             <input type="checkbox" data-todo="pack-cialis-pills">
