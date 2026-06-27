@@ -2,6 +2,13 @@ import './styles.css';
 import heroUrl from './assets/vegas-neon-hero.png';
 
 const DEPARTURE = new Date('2026-08-28T13:45:00-05:00');
+const LOVE_NOTES = [
+  'Next stop: cocktails under neon.',
+  'Reservation mode: engaged.',
+  'Two tickets, one city, all the sparkle.',
+  'Chris and Amanda, checking in for trouble and dessert.',
+  'Saving a little room for late-night laughs.',
+];
 
 const app = document.querySelector('#app');
 
@@ -42,6 +49,10 @@ app.innerHTML = `
 
         <p class="status" role="status" aria-live="polite" data-status>
           Counting every second until wheels up.
+        </p>
+
+        <p class="love-note" aria-label="Trip note" data-love-note>
+          ${LOVE_NOTES[0]}
         </p>
       </div>
 
@@ -92,6 +103,7 @@ app.innerHTML = `
 `;
 
 const status = document.querySelector('[data-status]');
+const loveNote = document.querySelector('[data-love-note]');
 const units = {
   days: document.querySelector('[data-unit="days"]'),
   hours: document.querySelector('[data-unit="hours"]'),
@@ -100,6 +112,7 @@ const units = {
 };
 const todoInputs = document.querySelectorAll('[data-todo]');
 const defaultCheckedTodos = new Set(['book-flight', 'reserve-hotel-room']);
+let loveNoteIndex = 0;
 
 todoInputs.forEach((input) => {
   const savedValue = localStorage.getItem(`vegas-todo:${input.dataset.todo}`);
@@ -147,7 +160,18 @@ function updateCountdown() {
   status.textContent = `${countdown.days} ${dayWord} until takeoff-ready smiles.`;
 }
 
+function rotateLoveNote() {
+  loveNoteIndex = (loveNoteIndex + 1) % LOVE_NOTES.length;
+  loveNote.classList.add('is-changing');
+
+  window.setTimeout(() => {
+    loveNote.textContent = LOVE_NOTES[loveNoteIndex];
+    loveNote.classList.remove('is-changing');
+  }, 220);
+}
+
 updateCountdown();
 setInterval(updateCountdown, 1000);
+setInterval(rotateLoveNote, 6200);
 
 export { DEPARTURE, getCountdownParts };
