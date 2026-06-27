@@ -1,0 +1,292 @@
+:root {
+  color: #fff8fb;
+  background: #090713;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.page-shell {
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, rgba(8, 4, 16, 0.9), rgba(8, 4, 16, 0.56) 46%, rgba(8, 4, 16, 0.82)),
+    linear-gradient(180deg, rgba(9, 7, 19, 0.18), rgba(9, 7, 19, 0.92)),
+    var(--hero-image) center / cover no-repeat,
+    #090713;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 330px);
+  align-items: end;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  min-height: 100vh;
+  padding: clamp(1.5rem, 5vw, 4.5rem);
+  isolation: isolate;
+}
+
+.hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    radial-gradient(circle at 18% 28%, rgba(255, 62, 165, 0.24), transparent 28%),
+    radial-gradient(circle at 77% 24%, rgba(0, 224, 255, 0.16), transparent 26%),
+    linear-gradient(180deg, transparent 72%, rgba(255, 189, 89, 0.16));
+  pointer-events: none;
+}
+
+.skyline {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0.78;
+  pointer-events: none;
+}
+
+.beam {
+  position: absolute;
+  bottom: -18vh;
+  width: 13vw;
+  min-width: 72px;
+  height: 82vh;
+  border-radius: 50%;
+  filter: blur(16px);
+  transform-origin: bottom;
+}
+
+.beam-one {
+  left: 10%;
+  background: linear-gradient(rgba(255, 63, 166, 0), rgba(255, 63, 166, 0.44));
+  transform: rotate(-21deg);
+}
+
+.beam-two {
+  right: 24%;
+  background: linear-gradient(rgba(0, 229, 255, 0), rgba(0, 229, 255, 0.34));
+  transform: rotate(14deg);
+}
+
+.beam-three {
+  right: 4%;
+  background: linear-gradient(rgba(255, 206, 103, 0), rgba(255, 206, 103, 0.28));
+  transform: rotate(31deg);
+}
+
+.hero-content {
+  width: min(100%, 850px);
+  padding-bottom: min(4vh, 2.5rem);
+}
+
+.eyebrow {
+  width: fit-content;
+  margin: 0 0 1rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(12, 10, 24, 0.56);
+  color: #ffd9ea;
+  font-size: clamp(0.78rem, 1.5vw, 0.94rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  box-shadow: 0 0 28px rgba(255, 52, 153, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+h1 {
+  max-width: 11ch;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3.25rem, 9vw, 8.8rem);
+  line-height: 0.88;
+  letter-spacing: 0;
+  text-shadow:
+    0 0 22px rgba(255, 48, 155, 0.58),
+    0 0 58px rgba(0, 218, 255, 0.22);
+}
+
+.intro {
+  max-width: 650px;
+  margin: clamp(1.1rem, 3vw, 1.7rem) 0 0;
+  color: #ffe8f2;
+  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+  text-wrap: balance;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(92px, 1fr));
+  gap: clamp(0.75rem, 2vw, 1rem);
+  width: min(100%, 760px);
+  margin-top: clamp(1.65rem, 4vw, 2.7rem);
+}
+
+.time-card {
+  display: grid;
+  place-items: center;
+  min-height: clamp(116px, 16vw, 164px);
+  padding: clamp(0.75rem, 2vw, 1.1rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05)),
+    rgba(12, 8, 25, 0.68);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.18),
+    0 22px 70px rgba(0, 0, 0, 0.32),
+    0 0 24px rgba(255, 53, 154, 0.16);
+  backdrop-filter: blur(22px);
+}
+
+.time-value {
+  min-width: 3ch;
+  color: #fff;
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  text-shadow: 0 0 18px rgba(255, 48, 155, 0.6);
+}
+
+.time-label {
+  color: #ffc3de;
+  font-size: clamp(0.72rem, 1.4vw, 0.86rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.status {
+  width: fit-content;
+  max-width: min(100%, 620px);
+  margin: 1rem 0 0;
+  padding: 0.7rem 0.9rem;
+  border-left: 3px solid #ffcb61;
+  background: rgba(10, 8, 22, 0.64);
+  color: #fff4c7;
+  font-weight: 700;
+  box-shadow: 0 0 26px rgba(255, 203, 97, 0.13);
+  backdrop-filter: blur(18px);
+}
+
+.trip-panel {
+  display: grid;
+  gap: 1rem;
+  align-self: end;
+  margin-bottom: min(4vh, 2.5rem);
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(10, 8, 22, 0.62);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    0 24px 80px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(22px);
+}
+
+.trip-panel div {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.panel-label {
+  color: #72efff;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.trip-panel strong {
+  color: #fff;
+  font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+}
+
+.has-departed .time-card {
+  border-color: rgba(255, 203, 97, 0.55);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.24),
+    0 26px 80px rgba(255, 59, 156, 0.22),
+    0 0 34px rgba(255, 203, 97, 0.28);
+}
+
+@media (max-width: 840px) {
+  .page-shell {
+    background:
+      linear-gradient(180deg, rgba(8, 4, 16, 0.5), rgba(8, 4, 16, 0.92) 58%, #090713),
+      var(--hero-image) center top / cover no-repeat,
+      #090713;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    align-items: end;
+    min-height: 100svh;
+    padding: 1.1rem;
+  }
+
+  .hero-content {
+    padding-top: 24vh;
+    padding-bottom: 0;
+  }
+
+  h1 {
+    font-size: clamp(3.05rem, 18vw, 5.2rem);
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .trip-panel {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 440px) {
+  .countdown {
+    gap: 0.65rem;
+  }
+
+  .time-card {
+    min-height: 106px;
+    padding: 0.7rem 0.45rem;
+  }
+
+  .time-value {
+    font-size: clamp(2.05rem, 14vw, 3.3rem);
+  }
+
+  .status {
+    width: 100%;
+  }
+}
