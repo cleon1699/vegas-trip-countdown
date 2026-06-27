@@ -15,7 +15,7 @@ app.innerHTML = `
       </div>
 
       <div class="hero-content">
-        <p class="eyebrow">Vegas with my wife</p>
+        <p class="eyebrow">Chris and Amanda to Vegas</p>
         <h1 id="page-title">The countdown is on.</h1>
         <p class="intro">
           Leaving for Las Vegas on August 28, 2026 at 1:15 PM Central Time.
