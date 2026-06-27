@@ -1,7 +1,7 @@
 import './styles.css';
 import heroUrl from './assets/vegas-neon-hero.png';
 
-const DEPARTURE = new Date('2026-08-28T13:15:00-05:00');
+const DEPARTURE = new Date('2026-08-28T13:45:00-05:00');
 
 const app = document.querySelector('#app');
 
@@ -18,7 +18,7 @@ app.innerHTML = `
         <p class="eyebrow">Chris and Amanda to Vegas</p>
         <h1 id="page-title">The countdown is on.</h1>
         <p class="intro">
-          Leaving for Las Vegas on August 28, 2026 at 1:15 PM Central Time.
+          Leaving for Las Vegas on August 28, 2026 at 1:45 PM Central Time.
         </p>
 
         <div class="countdown" aria-label="Countdown until departure">
@@ -52,7 +52,7 @@ app.innerHTML = `
         </div>
         <div>
           <span class="panel-label">Time</span>
-          <strong>1:15 PM Central</strong>
+          <strong>1:45 PM Central</strong>
         </div>
         <div>
           <span class="panel-label">Destination</span>
