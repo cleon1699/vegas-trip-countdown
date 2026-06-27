@@ -46,18 +46,46 @@ app.innerHTML = `
       </div>
 
       <aside class="trip-panel" aria-label="Trip details">
-        <div>
+        <div class="trip-detail">
           <span class="panel-label">Departure</span>
           <strong>Friday, August 28, 2026</strong>
         </div>
-        <div>
+        <div class="trip-detail">
           <span class="panel-label">Time</span>
           <strong>1:45 PM Central</strong>
         </div>
-        <div>
+        <div class="trip-detail">
           <span class="panel-label">Destination</span>
           <strong>Las Vegas, Nevada</strong>
         </div>
+
+        <section class="todo-list" aria-labelledby="todo-title">
+          <div class="todo-heading">
+            <span class="panel-label">Pre-trip checklist</span>
+            <strong id="todo-title">Ready list</strong>
+          </div>
+
+          <label class="todo-item">
+            <input type="checkbox" data-todo="book-flight">
+            <span>Book flight</span>
+          </label>
+          <label class="todo-item">
+            <input type="checkbox" data-todo="reserve-hotel-room">
+            <span>Reserve hotel room</span>
+          </label>
+          <label class="todo-item">
+            <input type="checkbox" data-todo="buy-show-tickets">
+            <span>Buy show tickets</span>
+          </label>
+          <label class="todo-item">
+            <input type="checkbox" data-todo="pick-hot-outfit">
+            <span>Pick a hot outfit</span>
+          </label>
+          <label class="todo-item">
+            <input type="checkbox" data-todo="pack-cialis-pills">
+            <span>Pack the Cialis pills</span>
+          </label>
+        </section>
       </aside>
     </section>
   </main>
@@ -70,6 +98,18 @@ const units = {
   minutes: document.querySelector('[data-unit="minutes"]'),
   seconds: document.querySelector('[data-unit="seconds"]'),
 };
+const todoInputs = document.querySelectorAll('[data-todo]');
+const defaultCheckedTodos = new Set(['book-flight', 'reserve-hotel-room']);
+
+todoInputs.forEach((input) => {
+  const savedValue = localStorage.getItem(`vegas-todo:${input.dataset.todo}`);
+  input.checked =
+    savedValue === null ? defaultCheckedTodos.has(input.dataset.todo) : savedValue === 'true';
+
+  input.addEventListener('change', () => {
+    localStorage.setItem(`vegas-todo:${input.dataset.todo}`, String(input.checked));
+  });
+});
 
 function getCountdownParts(now = new Date()) {
   const totalMs = Math.max(0, DEPARTURE.getTime() - now.getTime());
