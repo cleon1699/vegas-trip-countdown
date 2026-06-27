@@ -40,9 +40,9 @@ select {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(240px, 330px);
-  align-items: end;
+  align-items: center;
   gap: clamp(1.5rem, 4vw, 4rem);
-  min-height: 100vh;
+  min-height: 100svh;
   padding: clamp(1.5rem, 5vw, 4.5rem);
   isolation: isolate;
 }
@@ -98,8 +98,8 @@ select {
 }
 
 .hero-content {
-  width: min(100%, 850px);
-  padding-bottom: min(4vh, 2.5rem);
+  width: min(100%, 900px);
+  padding-block: 2rem;
 }
 
 .eyebrow {
@@ -119,11 +119,11 @@ select {
 }
 
 h1 {
-  max-width: 11ch;
+  max-width: 12ch;
   margin: 0;
   color: #ffffff;
-  font-size: clamp(3.25rem, 9vw, 8.8rem);
-  line-height: 0.88;
+  font-size: clamp(3.25rem, 7.5vw, 7.4rem);
+  line-height: 0.96;
   letter-spacing: 0;
   text-shadow:
     0 0 22px rgba(255, 48, 155, 0.58),
@@ -131,11 +131,10 @@ h1 {
 }
 
 .intro {
-  max-width: 650px;
-  margin: clamp(1.1rem, 3vw, 1.7rem) 0 0;
+  max-width: 760px;
+  margin: clamp(1rem, 2vw, 1.35rem) 0 0;
   color: #ffe8f2;
-  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
-  text-wrap: balance;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
 }
 
 .countdown {
@@ -143,7 +142,7 @@ h1 {
   grid-template-columns: repeat(4, minmax(92px, 1fr));
   gap: clamp(0.75rem, 2vw, 1rem);
   width: min(100%, 760px);
-  margin-top: clamp(1.65rem, 4vw, 2.7rem);
+  margin-top: clamp(1.35rem, 3vw, 2.15rem);
 }
 
 .time-card {
