@@ -57,23 +57,40 @@ app.innerHTML = `
       </div>
 
       <aside class="trip-panel" aria-label="Trip details">
-        <div class="trip-detail">
-          <span class="panel-label">Departure</span>
-          <strong>Friday, August 28, 2026</strong>
-        </div>
-        <div class="trip-detail">
-          <span class="panel-label">Time</span>
-          <strong>1:45 PM Central</strong>
-        </div>
-        <div class="trip-detail">
-          <span class="panel-label">Destination</span>
-          <strong>Las Vegas, Nevada</strong>
+        <div class="trip-details">
+          <div class="trip-detail">
+            <span class="panel-label">Departure</span>
+            <strong>Friday, August 28, 2026</strong>
+          </div>
+          <div class="trip-detail">
+            <span class="panel-label">Time</span>
+            <strong>1:45 PM Central</strong>
+          </div>
+          <div class="trip-detail">
+            <span class="panel-label">Destination</span>
+            <strong>Las Vegas, Nevada</strong>
+          </div>
         </div>
 
         <section class="todo-list" aria-labelledby="todo-title">
           <div class="todo-heading">
-            <span class="panel-label">Pre-trip checklist</span>
-            <strong id="todo-title">Ready list</strong>
+            <div>
+              <span class="panel-label">Pre-trip checklist</span>
+              <strong id="todo-title">Ready list</strong>
+            </div>
+            <span class="todo-count" data-todo-count aria-live="polite">0 of 5 ready</span>
+          </div>
+
+          <div
+            class="todo-progress"
+            role="progressbar"
+            aria-label="Checklist progress"
+            aria-valuemin="0"
+            aria-valuemax="5"
+            aria-valuenow="0"
+            data-todo-progress
+          >
+            <span data-todo-progress-bar></span>
           </div>
 
           <label class="todo-item">
@@ -111,8 +128,21 @@ const units = {
   seconds: document.querySelector('[data-unit="seconds"]'),
 };
 const todoInputs = document.querySelectorAll('[data-todo]');
+const todoCount = document.querySelector('[data-todo-count]');
+const todoProgress = document.querySelector('[data-todo-progress]');
+const todoProgressBar = document.querySelector('[data-todo-progress-bar]');
 const defaultCheckedTodos = new Set(['book-flight', 'reserve-hotel-room']);
 let loveNoteIndex = 0;
+
+function updateTodoProgress() {
+  const completed = [...todoInputs].filter((input) => input.checked).length;
+  const total = todoInputs.length;
+  const progress = total === 0 ? 0 : (completed / total) * 100;
+
+  todoCount.textContent = `${completed} of ${total} ready`;
+  todoProgress.setAttribute('aria-valuenow', String(completed));
+  todoProgressBar.style.width = `${progress}%`;
+}
 
 todoInputs.forEach((input) => {
   const savedValue = localStorage.getItem(`vegas-todo:${input.dataset.todo}`);
@@ -121,8 +151,11 @@ todoInputs.forEach((input) => {
 
   input.addEventListener('change', () => {
     localStorage.setItem(`vegas-todo:${input.dataset.todo}`, String(input.checked));
+    updateTodoProgress();
   });
 });
+
+updateTodoProgress();
 
 function getCountdownParts(now = new Date()) {
   const totalMs = Math.max(0, DEPARTURE.getTime() - now.getTime());

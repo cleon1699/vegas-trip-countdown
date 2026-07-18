@@ -1,0 +1,15 @@
+Generated CSV: C:\CodexWorkspaces\New project\output\tp1_il_10074740.csv
+Input invoice: C:\Users\cleon\Downloads\SI_10074740.pdf
+Rows generated: 153
+Sum of invoice extended prices parsed: 11744.84
+Sum of CSV value x quantity: 10297.28
+Validation: every row has 29 columns; no text field contains commas; max lengths enforced.
+
+Rows by page:
+  Page 1: 13
+  Page 2: 21
+  Page 3: 23
+  Page 4: 23
+  Page 5: 22
+  Page 6: 28
+  Page 7: 23
