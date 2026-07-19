@@ -48,10 +48,6 @@ app.innerHTML = `
           </article>
         </div>
 
-        <p class="status" role="status" aria-live="polite" data-status>
-          Counting every second until wheels up.
-        </p>
-
         <p class="love-note" aria-label="Trip note" data-love-note>
           ${LOVE_NOTES[0]}
         </p>
@@ -128,7 +124,6 @@ app.innerHTML = `
   </main>
 `;
 
-const status = document.querySelector('[data-status]');
 const loveNote = document.querySelector('[data-love-note]');
 const units = {
   days: document.querySelector('[data-unit="days"]'),
@@ -193,13 +188,9 @@ function updateCountdown() {
   units.seconds.textContent = String(countdown.seconds).padStart(2, '0');
 
   if (countdown.departed) {
-    status.textContent = 'It is Vegas time. The trip has officially begun.';
     document.body.classList.add('has-departed');
     return;
   }
-
-  const dayWord = countdown.days === 1 ? 'day' : 'days';
-  status.textContent = `${countdown.days} ${dayWord} until takeoff-ready smiles.`;
 }
 
 function rotateLoveNote() {

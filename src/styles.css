@@ -187,19 +187,6 @@ h1 {
   text-transform: uppercase;
 }
 
-.status {
-  width: fit-content;
-  max-width: min(100%, 620px);
-  margin: 1rem 0 0;
-  padding: 0.7rem 0.9rem;
-  border-left: 3px solid #ffcb61;
-  background: rgba(10, 8, 22, 0.64);
-  color: #fff4c7;
-  font-weight: 700;
-  box-shadow: 0 0 26px rgba(255, 203, 97, 0.13);
-  backdrop-filter: blur(18px);
-}
-
 .love-note {
   width: fit-content;
   max-width: min(100%, 620px);
@@ -458,10 +445,6 @@ h1 {
 
   .time-value {
     font-size: clamp(2.05rem, 14vw, 3.3rem);
-  }
-
-  .status {
-    width: 100%;
   }
 
   .todo-heading {
