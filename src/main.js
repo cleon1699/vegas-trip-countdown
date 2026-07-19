@@ -1,5 +1,6 @@
 import './styles.css';
 import heroUrl from './assets/vegas-neon-hero-v2.png';
+import couplePhotoUrl from './assets/chris-amanda-vegas.png';
 
 const DEPARTURE = new Date('2026-08-28T13:45:00-05:00');
 const LOVE_NOTES = [
@@ -57,6 +58,14 @@ app.innerHTML = `
       </div>
 
       <aside class="trip-panel" aria-label="Trip details">
+        <figure class="trip-photo">
+          <img
+            src="${couplePhotoUrl}"
+            alt="Chris and Amanda smiling together on the Las Vegas Strip at night"
+          >
+          <figcaption>Chris + Amanda in Vegas</figcaption>
+        </figure>
+
         <div class="trip-details">
           <div class="trip-detail">
             <span class="panel-label">Departure</span>
