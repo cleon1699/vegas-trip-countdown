@@ -30,9 +30,9 @@ select {
 .page-shell {
   min-height: 100vh;
   background:
-    linear-gradient(90deg, rgba(8, 4, 16, 0.9), rgba(8, 4, 16, 0.56) 46%, rgba(8, 4, 16, 0.82)),
-    linear-gradient(180deg, rgba(9, 7, 19, 0.18), rgba(9, 7, 19, 0.92)),
-    var(--hero-image) center / cover no-repeat,
+    linear-gradient(90deg, rgba(8, 4, 16, 0.84), rgba(8, 4, 16, 0.46) 46%, rgba(8, 4, 16, 0.7)),
+    linear-gradient(180deg, rgba(9, 7, 19, 0.14), rgba(9, 7, 19, 0.72)),
+    var(--hero-image) 70% center / cover no-repeat,
     #090713;
 }
 

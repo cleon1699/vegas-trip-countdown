@@ -1,5 +1,5 @@
 import './styles.css';
-import heroUrl from './assets/vegas-neon-hero.png';
+import heroUrl from './assets/vegas-neon-hero-v2.png';
 
 const DEPARTURE = new Date('2026-08-28T13:45:00-05:00');
 const LOVE_NOTES = [
