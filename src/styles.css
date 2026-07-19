@@ -39,10 +39,13 @@ select {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 330px);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
   align-items: center;
   gap: clamp(1.5rem, 4vw, 4rem);
+  width: 100%;
+  max-width: 1500px;
   min-height: 100svh;
+  margin-inline: auto;
   padding: clamp(1.5rem, 5vw, 4.5rem);
   isolation: isolate;
 }
@@ -144,7 +147,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, minmax(92px, 1fr));
   gap: clamp(0.75rem, 2vw, 1rem);
-  width: min(100%, 760px);
+  width: min(100%, 860px);
   margin-top: clamp(1.35rem, 3vw, 2.15rem);
 }
 
